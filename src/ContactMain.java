@@ -5,37 +5,32 @@ import java.util.Scanner;
 public class ContactMain {
 
 
-    public static void main(String[] args) {
+    public static Object printList() {
         Scanner scanner = new Scanner(System.in);
 
         //Call that beautiful menu
-        ContactsManagerMenu.userMenuSelection();
+//        ContactsManagerMenu.userMenuSelection();
 
         //HashMap named contacts with keys of type String and values of type Student Objects with
         // 2 Contact Objects with
 
-            HashMap<String, ContactsList> contacts = new HashMap<>();
-            ContactsList c1 = new ContactsList("Jenny", 77380, "867-5309" );
-            c1.addZip(77382);
-            ContactsList c2 = new ContactsList("Jane", 77380, "936-999-0101" );
-            c2.addZip(77380);
+//        -------------HASHMAP---------------
+        HashMap<String, ContactsList> contacts = new HashMap<>();
+        ContactsList c1 = new ContactsList("Jenny", 77380, "867-5309");
+        c1.addZip(77382);
+        ContactsList c2 = new ContactsList("Jane", 77380, "936-999-0101");
+        c2.addZip(77380);
 
-            //print out the contacts
-//            System.out.println(c1);
+        //print out the contacts
+        System.out.println(c1.getName());
+        System.out.println(c1.getPhone());
+        System.out.println(c1.getZip());
 
-        //print out all the contacts
-        System.out.println(contacts + "\n TEST TEST TEST");
+        System.out.println(c2.getName());
+        System.out.println(c2.getPhone());
+        System.out.println(c2.getZip());
 
 
-//    public static void printList ()
-
-//        System.out.println(printList);
-
-        System.out.println(
-                "**************************************************************************************");
-        System.out.println("Welcome! Here are the contacts:");
-        System.out.println(
-                "**************************************************************************************");
         //        Print the list of GitHub usernames out to the console, and ask the user which
         //        contact they would like to see more information about.
 
@@ -46,11 +41,7 @@ public class ContactMain {
         contacts.put(" Jenny", c1);
         contacts.put(" Jane", c2);
 
-
-        System.out.println("Which contact would you like to see more information about?");
-        System.out.println("----------------------------------------------------");
-
-
-
+        return null;
     }
+
 }
