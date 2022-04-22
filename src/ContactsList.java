@@ -1,28 +1,22 @@
 
 
 public class ContactsList {
+
+//  ---------PROPERTIES-----------
     public String name;
-
     public int zip;
+    public String phone;
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
+//    --------CONSTRUCTOR-----------
+    public ContactsList(String name, int zip, String phone) {
+        this.name = name;
+        this.zip = 77380;
         this.phone = phone;
     }
 
-    public String phone;
+//    ----------GETTERS AND SETTERS-------------
 
-
-
-    public ContactsList(String name, int zip, String phone) {
-        this.name = "name";
-        this.zip = 77380;
-        this.phone = "9361114444";
-
-    }
+//    -------NAME---------
     public String getName() {
         return name;
     }
@@ -31,6 +25,7 @@ public class ContactsList {
         this.name = name;
     }
 
+//    ------ZIP----------
     public int getZip() {
         return zip;
     }
@@ -42,6 +37,20 @@ public class ContactsList {
     public void addZip(int i) {
         return;
     }
+
+//    ------PHONE----------
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+
+
+
+
 //
 //    public double getGradeAverzip() {
 //        return gradeAverzip;
