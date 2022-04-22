@@ -3,12 +3,9 @@ import util.Input;
 
 public class ContactsManagerMenu {
 
-    public static void main(String[] args) {
-        userMenuSelection();
-    }
 
     public static void userMenuSelection() {
-        ContactMain list = new ContactMain();
+        ContactHashmap list = new ContactHashmap();
         Input userSelection = new Input();
         int num;
 
