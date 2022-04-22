@@ -3,8 +3,7 @@ import util.Input;
 
 public class ContactsManagerMenu {
 
-    public static void main(String[] args) {
-        userMenuSelection();
+    public static void main(String[] args) {userMenuSelection();
     }
 
     public static void userMenuSelection() {
@@ -32,6 +31,7 @@ public class ContactsManagerMenu {
                 case 1:
                     System.out.println("You selected View contacts.");
                     break;
+
                 case 2:
                     System.out.println("You selected Add a new contact.");
                     break;
@@ -45,7 +45,7 @@ public class ContactsManagerMenu {
                     System.out.println("OK, bye Felicia!");
                     continueRunning = false;
                 default:
-                    if (num <1 || num >5) {
+                    if (num < 1 || num > 5) {
                         System.out.println("that's not an option");
                     }
             }
