@@ -1,0 +1,26 @@
+package util;
+
+import java.util.Scanner;
+
+public class Input {
+
+    //    ------------------- EXERCISE 1.----------------
+
+    //PROPERTIES
+    public static Scanner scanner;
+
+    //    CONSTRUCTOR
+
+    public Input() {
+        this.scanner = new Scanner(System.in);
+
+    }
+
+    // GETTERS AND SETTERS
+
+//    public String getString() {
+////        System.out.println(prompt);
+//        return this.scanner.nextLine();
+//    }
+
+}
