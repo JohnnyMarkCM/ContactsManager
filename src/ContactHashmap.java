@@ -1,4 +1,6 @@
 
+import util.Input;
+
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Scanner;
@@ -7,6 +9,8 @@ public class ContactHashmap {
 
     private static HashMap<String, Contacts> contacts = new HashMap<>();
 
+
+    //------------------GET CONTACTS METHOD----------------------
     public static HashMap<String, Contacts> getContacts() {
         if (contacts.isEmpty()) {
             Contacts c1 = new Contacts("Jenny", 77380, "867-5309");
@@ -21,6 +25,37 @@ public class ContactHashmap {
     }
 
 
+    //-----------CONTACT SEARCH BY NAME METHOD------------
+    public static HashMap<String, Contacts> searchContacts() {
+        Input userSelection = new Input();
+        String userInput = userSelection.scanner.next();
 
-
+        for (Contacts person : ContactHashmap.getContacts().values()) {
+            if (userInput.equalsIgnoreCase(person.name)) {
+                System.out.println(person.getName());
+                System.out.println(person.getPhone());
+            } else if (!userInput.equalsIgnoreCase(person.name)) {
+                System.out.println("No user with that name found");
+            } else {
+                System.out.println("test");
+            }
+        }
+        return contacts;
+    }
+//        return contacts;
 }
+//-------------------------------------------------------
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
