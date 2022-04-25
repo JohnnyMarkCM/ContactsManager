@@ -1,5 +1,7 @@
 import util.Input;
 
+import java.util.HashMap;
+
 
 public class ContactsManagerMenu {
 
@@ -7,14 +9,16 @@ public class ContactsManagerMenu {
     public static void userMenuSelection() {
 
 //       INSTANTIATES CASE 1
-        ContactHashmap list = new ContactHashmap();
         Input userSelection = new Input();
+
 
 
 
         int num;
 
         //--------------------------- SWITCH CASE------------------------------
+
+
         boolean continueRunning = true;
 
         do {
@@ -34,7 +38,7 @@ public class ContactsManagerMenu {
 
 
                 case 1:
-                    System.out.println(list.printList());
+                    System.out.println(ContactHashmap.getContacts());
                     System.out.println("You selected View contacts.");
                     break;
 
