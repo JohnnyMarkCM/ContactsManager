@@ -14,13 +14,13 @@ public class InformationHighway {
     }
 
     public static void addContact(String name, long number) {
-        System.out.println("Adding contact " + name + " : " + number);
+        System.out.println("Adding contact " + name + ": " + number);
         try {
             PrintWriter pw = new PrintWriter(new FileWriter("file.txt", true));
             pw.println(name + ":" + number);
 
             pw.close();     //needs to remain here
-            
+
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -34,54 +34,58 @@ public class InformationHighway {
     public static void displayMenu() {
         //make simple menu
 
-        System.out.println("What would you like to do? (1,2,3...etc)");
-        System.out.println("1. Call Contact");
-        System.out.println("2. Add Contact");  //aka save contact
-        System.out.println("3. Find Number");
-        System.out.println("4. Exit");
-
         //get user input
-        Scanner in = new Scanner(System.in);
-        String name;
-        //reading what next integer is, does not actually read new line
-        // character which is backslash n
-        int choice = in.nextInt();
-        in.nextLine();
+        try (Scanner in = new Scanner(System.in)) {
+            String name;
 
-        switch (choice) {
-            case 1:
-                System.out.println("\nWho would you like to call? (Firstname Lastname)");
-                name = in.nextLine();
+            System.out.println("What would you like to do? (1,2,3...etc)");
+            System.out.println("1. Call Contact");
+            System.out.println("2. Add Contact");  //aka save contact
+            System.out.println("3. Find Number");
+            System.out.println("4. Exit");
 
-                callContact(name);
-                break;
+            //reading what next integer is, does not actually read new line
+            // character which is backslash n
+            int choice = in.nextInt();
+            in.nextLine();
 
-            case 2:
-                System.out.println("\nWhat is the name of the person you would like to save? " +
-                        "(Firstname Lastname");
-                name = in.nextLine();
+            switch (choice) {
+                case 1:
+                    System.out.println("\nWho would you like to call? (Firstname Lastname)");
+                    name = in.nextLine();
 
-                System.out.println("\nWhat is the phone number of the person you are " +
-                        "saving? (1112223456)");
-                long number = in.nextLong();
-                in.nextLine();
+                    callContact(name);
+                    break;
+
+                case 2:
+                    System.out.println("\nWhat is the name of the person you would like to save? " +
+                            "(Firstname Lastname");
+                    name = in.nextLine();
+
+                    System.out.println("\nWhat is the phone number of the person you are " +
+                            "saving? (1112223456)");
+                    long number = in.nextLong();
+                    in.nextLine();
 
 
-                addContact(name, number);
-                break;
+                    addContact(name, number);
+                    break;
 
-            case 3:
-                System.out.println("\nWhat is the name of ther person whose phone number you are " +
-                        "searching? (Firstname Lastname)");
-                // below is passed in as an argument because it will return string of entire line
-                findNumber(in.nextLine());
-                break;
+                case 3:
+                    System.out.println("\nWhat is the name of ther person whose phone number you " +
+                            "are " +
+                            "searching? (Firstname Lastname)");
+                    // below is passed in as an argument because it will return string of entire
+                    // line
+                    findNumber(in.nextLine());
+                    break;
 
-            default:
+                default:
 
-                break;
+                    break;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
-        //always use this
-        in.close();
     }
 }
