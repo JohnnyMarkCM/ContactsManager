@@ -5,19 +5,20 @@ public class ContactsManagerMenu {
 
 
     public static void userMenuSelection() {
+
+//       INSTANTIATES CASE 1
         ContactHashmap list = new ContactHashmap();
         Input userSelection = new Input();
+
+
+
         int num;
 
         //--------------------------- SWITCH CASE------------------------------
         boolean continueRunning = true;
 
         do {
-            System.out.println(
-                    "**************************************************************************************");
-            System.out.println("Welcome! Here are the contacts:");
-            System.out.println(
-                    "**************************************************************************************");
+
             System.out.println("Please make a selection from the list below...");
             System.out.println("1 - View contacts.");
             System.out.println("2 - Add a new contact.");
