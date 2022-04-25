@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class InformationHighway {
@@ -5,7 +9,6 @@ public class InformationHighway {
     public static void main(String[] args) {
         //create menu using function called display menu
         displayMenu();
-
     }
 
     public static void callContact(String name) {
@@ -14,13 +17,34 @@ public class InformationHighway {
 
     //using long--- for phone number to save on memory
     public static void addContact(String name, long number) {
-        System.out.println("Saving contact " + name + " : " + number);
+        System.out.println("Adding contact " + name + " : " + number);
+        File file = new File("file.txt");
+        //make sure to make if statement if it does/not exist
+
+        try {
+
+            if (!file.exists())
+                file.createNewFile();
+            // now write to file as this takes an argument which is what we are writing to
+            // to fix overwriting use FileWriter and append
+            // append using FileWriter to append all new data written to end of file
+            PrintWriter pw = new PrintWriter(new FileWriter(file, true)); 
+
+            pw.println(name + ":" + number);
+
+            //we need to close the print writer to end it.
+            pw.close();
+
+            //now use try catch for exceptions  such as dividing by zero
+            //this will run the code, catch the exception, and tell us what the issue is
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void findNumber(String name) {
-       //change output once we have an addressbook
+        //change output once we have an addressbook
         System.out.println("Could not find " + name);
-
     }
 
     public static void displayMenu() {
@@ -58,7 +82,6 @@ public class InformationHighway {
                 long number = in.nextLong();
                 in.nextLine();
 
-                
 
                 addContact(name, number);
                 break;
@@ -75,8 +98,7 @@ public class InformationHighway {
 
                 break;
         }
-
-
+         //always use this
+        in.close();
     }
-
 }
