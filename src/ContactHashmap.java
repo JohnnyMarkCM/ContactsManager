@@ -30,22 +30,17 @@ public class ContactHashmap {
         Input userSelection = new Input();
         String userInput = userSelection.scanner.next();
 
+
         for (Contacts person : ContactHashmap.getContacts().values()) {
             if (userInput.equalsIgnoreCase(person.name)) {
                 System.out.println(person.getName());
                 System.out.println(person.getPhone());
-            } else if (!userInput.equalsIgnoreCase(person.name)) {
-                System.out.println("No user with that name found");
-            } else {
-                System.out.println("test");
             }
         }
         return contacts;
     }
-//        return contacts;
 }
-//-------------------------------------------------------
-//}
+
 
 
 
