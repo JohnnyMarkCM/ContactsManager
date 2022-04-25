@@ -8,7 +8,7 @@ public class ContactRunner {
         System.out.println(
                 "**************************************************************************************");
 
-        //instantiate a new Contact
+        //INSTANTIATES/PRINT CONTACTS MENU
         ContactsManagerMenu list = new ContactsManagerMenu();
         list.userMenuSelection();
 
