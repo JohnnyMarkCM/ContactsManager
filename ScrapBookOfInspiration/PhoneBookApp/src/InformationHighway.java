@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -27,6 +28,33 @@ public class InformationHighway {
     }
 
     public static void findNumber(String name) {
+        //change scanner source
+        try (Scanner in = new Scanner(new File("file.txt"))) {
+            String s[]; //this will reuse same variable so no need to constantly reopen memory,
+            // it'll redefine it
+
+            //now what if contact is not in file?
+            boolean foundPerson = false;
+
+            while (in.hasNextLine()) {
+                //stores as string but we are looking for specific info
+                //so use split to split it into multiple parts and store it as an array
+                s = in.nextLine().split(":");
+                if (s[0].equals(name))
+                    System.out.println("The number associated with " + name + " is " + s[1]);
+                //one is
+                // number which is second part of info
+                foundPerson = true;
+            }
+
+            if (!foundPerson) {
+                System.out.println("Could not find " + name);
+            }
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
         //change output once we have an addressbook
         System.out.println("Could not find " + name);
     }
