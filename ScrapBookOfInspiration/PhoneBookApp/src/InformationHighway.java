@@ -55,8 +55,6 @@ public class InformationHighway {
             System.out.println(e.getMessage());
         }
 
-        //change output once we have an addressbook
-        System.out.println("Could not find " + name);
     }
 
     public static void displayMenu() {
