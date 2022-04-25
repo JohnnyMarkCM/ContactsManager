@@ -1,9 +1,6 @@
-
 import util.Input;
 
 import java.util.HashMap;
-import java.util.Objects;
-import java.util.Scanner;
 
 public class ContactHashmap {
 
@@ -40,9 +37,6 @@ public class ContactHashmap {
         return contacts;
     }
 }
-
-
-
 
 
 
