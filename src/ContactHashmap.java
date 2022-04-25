@@ -5,12 +5,19 @@ import java.util.Scanner;
 
 public class ContactHashmap {
 
+        private static HashMap<String, Contacts> contacts = new HashMap<>();
+
+        public static HashMap<String, Contacts> getContacts(){
+                return (HashMap<String, Contacts>) printList();
+        }
+
+
 
     public static Object printList() {
         Scanner scanner = new Scanner(System.in);
 
 //        -------------HASHMAP---------------
-        HashMap<String, Contacts> contacts = new HashMap<>();
+
         Contacts c1 = new Contacts("Jenny", 77380, "867-5309");
         c1.addZip(77382);
         Contacts c2 = new Contacts("Jane", 77380, "936-999-0101");
@@ -29,13 +36,13 @@ public class ContactHashmap {
 
         //        Print the list of GitHub usernames out to the console, and ask the user which
         //        contact they would like to see more information about.
-        for (String key : contacts.keySet()) {
-            System.out.println(key);
-        }
-        //Create command line interface prints list of contacts and their info
-        contacts.put(" Jenny", c1);
-        contacts.put(" Jane", c2);
-
+//        for (String key : contacts.keySet()) {
+//            System.out.println(key);
+//        }
+//        //Create command line interface prints list of contacts and their info
+//        contacts.put(" Jenny", c1);
+//        contacts.put(" Jane", c2);
+//
         return null;
     }
 
