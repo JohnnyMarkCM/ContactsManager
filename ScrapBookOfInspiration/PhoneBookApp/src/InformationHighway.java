@@ -1,4 +1,3 @@
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,7 +6,6 @@ import java.util.Scanner;
 public class InformationHighway {
 
     public static void main(String[] args) {
-        //create menu using function called display menu
         displayMenu();
     }
 
@@ -15,28 +13,14 @@ public class InformationHighway {
         System.out.println("Calling " + name);
     }
 
-    //using long--- for phone number to save on memory
     public static void addContact(String name, long number) {
         System.out.println("Adding contact " + name + " : " + number);
-        File file = new File("file.txt");
-        //make sure to make if statement if it does/not exist
-
         try {
-
-            if (!file.exists())
-                file.createNewFile();
-            // now write to file as this takes an argument which is what we are writing to
-            // to fix overwriting use FileWriter and append
-            // append using FileWriter to append all new data written to end of file
-            PrintWriter pw = new PrintWriter(new FileWriter(file, true)); 
-
+            PrintWriter pw = new PrintWriter(new FileWriter("file.txt", true));
             pw.println(name + ":" + number);
 
-            //we need to close the print writer to end it.
-            pw.close();
-
-            //now use try catch for exceptions  such as dividing by zero
-            //this will run the code, catch the exception, and tell us what the issue is
+            pw.close();     //needs to remain here
+            
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -59,7 +43,7 @@ public class InformationHighway {
         //get user input
         Scanner in = new Scanner(System.in);
         String name;
-        //reading what next interger is, does not actually read new line
+        //reading what next integer is, does not actually read new line
         // character which is backslash n
         int choice = in.nextInt();
         in.nextLine();
@@ -89,8 +73,7 @@ public class InformationHighway {
             case 3:
                 System.out.println("\nWhat is the name of ther person whose phone number you are " +
                         "searching? (Firstname Lastname)");
-                // below is passed in as an argument because it will return
-                // string of entire line
+                // below is passed in as an argument because it will return string of entire line
                 findNumber(in.nextLine());
                 break;
 
@@ -98,7 +81,7 @@ public class InformationHighway {
 
                 break;
         }
-         //always use this
+        //always use this
         in.close();
     }
 }
