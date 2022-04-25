@@ -26,65 +26,17 @@ public class ContactHashmap {
     public static HashMap<String, Contacts> searchContacts() {
         Input userSelection = new Input();
         String userInput = userSelection.scanner.next();
-        HashMap<String, Contacts> contacts = getContacts();
-//        if (contacts.containsKey(userInput)) {
-//            System.out.println(contacts.get(userInput));
-//        } else {
-//            System.out.println("Contact not found");
-//        }
-//        return contacts;
-        switch (userInput.toLowerCase()) {
-            //switch (userInput && ignorecase)
-            case "jenny":
-                System.out.println(contacts.get("Jenny").getName());
-                System.out.println(contacts.get("Jenny").getPhone());
-                System.out.println(contacts.get(userInput));
-                break;
-            case "Jane":
-                System.out.println(contacts.get("Jane").getName());
-                System.out.println(contacts.get("Jane").getPhone());
-                System.out.println(contacts.get(userInput));
-                break;
 
-    }
+
+        for (Contacts person : ContactHashmap.getContacts().values()) {
+            if (userInput.equalsIgnoreCase(person.name)) {
+                System.out.println(person.getName());
+                System.out.println(person.getPhone());
+            }
+        }
         return contacts;
-
     }
 }
-
-//        if (contacts.containsKey(userInput)) {
-//            System.out.println(contacts.get(userInput));
-//        } else {
-//            System.out.println("Contact not found");
-//        }
-//        return contacts;
-//change to switch statement and ignore case
-
-
-
-//
-
-//default:
-//        System.out.println("Contact not found");
-//        break;
-
-//        for (Contacts person : ContactHashmap.getContacts().values()) {
-//            if (person.name.compareToIgnoreCase(userInput) == 0) {
-//                System.out.println(person.getName());
-//                System.out.println(person.getPhone());
-//                //else statement if user input is not found
-//            } else {
-//                //TODO: remove this else statement
-//                System.out.println("Contact not found TODO REMOVE ME");
-//
-//            }
-//        }
-//        return contacts;
-
-
-//-------------------------------------------------------
-
-
 
 
 
