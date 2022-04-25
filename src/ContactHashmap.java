@@ -1,4 +1,6 @@
 
+import util.Input;
+
 import java.util.HashMap;
 import java.util.Objects;
 import java.util.Scanner;
@@ -19,6 +21,20 @@ public class ContactHashmap {
         }
         return contacts;
     }
+
+    public static HashMap<String, Contacts> searchContacts(){
+        Input userSelection = new Input();
+        String userInput = userSelection.scanner.next();
+
+        if (userInput.equalsIgnoreCase(String.valueOf(contacts.keySet()))){
+            System.out.println("this worked");
+        }
+    };
+
+//        return contacts;
+    }
+
+
 
 
 
