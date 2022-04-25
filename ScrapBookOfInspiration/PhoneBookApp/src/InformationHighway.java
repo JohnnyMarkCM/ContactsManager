@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
@@ -24,8 +25,10 @@ public class InformationHighway {
 
             if (!file.exists())
                 file.createNewFile();
-            //now write to file as this takes an argument which is what we are writing to
-            PrintWriter pw = new PrintWriter(file);
+            // now write to file as this takes an argument which is what we are writing to
+            // to fix overwriting use FileWriter and append
+            // append using FileWriter to append all new data written to end of file
+            PrintWriter pw = new PrintWriter(new FileWriter(file, true)); 
 
             pw.println(name + ":" + number);
 
@@ -95,7 +98,7 @@ public class InformationHighway {
 
                 break;
         }
-
-
+         //always use this
+        in.close();
     }
 }
