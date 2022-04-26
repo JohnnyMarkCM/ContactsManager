@@ -3,9 +3,9 @@
 public class Contact {
 
     //  ---------PROPERTIES-----------
-    public String name;
-    public int zip;
-    public String phone;
+    private String name;
+    private int zip;
+    private String phone;
 
     //    --------CONSTRUCTOR-----------
     public Contact(String name, int zip, String phone) {
@@ -14,7 +14,9 @@ public class Contact {
         this.phone = phone;
     }
 
-//    ----------GETTERS AND SETTERS-------------
+    public Contact() {
+    }
+    //    ----------GETTERS AND SETTERS-------------
 
     //    -------NAME---------
     public String getName() {
@@ -47,6 +49,14 @@ public class Contact {
         this.phone = phone;
     }
 
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "name='" + name + '\'' +
+                ", zip=" + zip +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
 }
 
 
