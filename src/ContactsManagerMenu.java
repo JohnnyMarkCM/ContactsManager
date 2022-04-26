@@ -50,6 +50,7 @@ public class ContactsManagerMenu {
                     break;
                 case 4:
                     System.out.println("You selected Delete an existing contact.");
+                    ContactHashmap.deleteContactUserInput();
                     break;
                 case 5:
                     System.out.println("OK, bye Felicia!");
@@ -68,7 +69,7 @@ public class ContactsManagerMenu {
         System.out.println("exiting loop");
         ContactHashmap.tryWriteFile(ContactHashmap.getContacts());
     }
-    private static void printContactsList() {
+    public static void printContactsList() {
 
         for (Contact c : ContactHashmap.getContacts().values()) {
             System.out.println(c.getName() + " | " + c.getPhone() + "\n");
