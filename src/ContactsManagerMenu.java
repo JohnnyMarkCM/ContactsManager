@@ -50,7 +50,8 @@ public class ContactsManagerMenu {
                     break;
                 case 4:
                     System.out.println("You selected Delete an existing contact.");
-                    ContactHashmap.deleteContactUserInput();
+                    ContactHashmap.deleteContact();
+//
                     break;
                 case 5:
                     System.out.println("OK, bye Felicia!");

@@ -137,32 +137,60 @@ public class ContactHashmap {
     }
 
     //delete contact
-    public static void deleteContact(String name) {
-        contacts.remove(name);
+//    public static void deleteContact(HashMap<String, Contact> contacts, String name) {
+//        contacts.remove(name); //remove contact from hashmap
+//        Scanner in = new Scanner(System.in);
+//        System.out.println("\nWhat is the name of the person you would like to delete? " +
+//                "(Firstname Lastname");
+//        name = in.nextLine().toLowerCase();
+//        deleteContact(contacts, name);
+//        System.out.println("\nAre you sure you want to delete " + name + "? (y/n)");
+//        String confirm = in.nextLine();
+//        if (confirm.equals("y")) {
+//            System.out.println("\nContact deleted.");
+//        } else {
+//            System.out.println("\nContact not deleted.");
+//        }
+
+    //delete contact from .json file
+    public static void deleteContact(HashMap<String, Contact> contacts, String name) {
+        contacts.remove(name); //remove contact from hashmap
+        Path filePath = tryMakeFileDirectory();
+        tryWrite(filePath, contacts);
+
     }
 
-    public static void deleteContactUserInput() {
-        //show all contacts
-        System.out.println("\nHere are all the Humanoids in your digital address book:");
-        ContactsManagerMenu.printContactsList();
-        Scanner in = new Scanner(System.in);
-        System.out.println("\nWhat is the name of the person you would like to delete?" +
-                "(Firstname Lastname");
-        String name = in.nextLine().toLowerCase();
-        deleteContact(name);
-        // if contact does not exist, print error message
-//        if (contacts.get(name) == null) {
-//            System.out.println("\nThat contact does not exist in your silly address book of " +
-//                    "humans");
-//        }
-        System.out.println("\nAre you sure you want to delete " + name + "? (y/n)");
-        String confirm = in.nextLine();
-        if (confirm.equals("y")) {
-            deleteContact(name);
+    private static void tryWrite(Path filePath, HashMap<String,Contact> contacts) {
+        try {
+            Files.write(filePath, new Gson().toJson(contacts).getBytes());
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
-
     }
 }
+
+
+//    public static void deleteContactUserInput() {
+//        //show all contacts
+//        System.out.println("\nHere are all the Humanoids in your digital address book:");
+//        ContactsManagerMenu.printContactsList();
+//        Scanner in = new Scanner(System.in);
+//        System.out.println("\nWhat is the name of the person you would like to delete?" +
+//                "(Firstname Lastname");
+//        String name = in.nextLine().toLowerCase();
+////        deleteContact(name);
+////        deleteContact(name);
+//        // if contact does not exist, print error message
+////        if (contacts.get(name) == null) {
+////            System.out.println("\nThat contact does not exist in your silly address book of " +
+////                    "humans");
+////        }
+//        System.out.println("\nAre you sure you want to delete " + name + "? (y/n)");
+//        String confirm = in.nextLine();
+//        if (confirm.equals("y")) {
+////            deleteContact(name);
+//        }
+
 
 
 
