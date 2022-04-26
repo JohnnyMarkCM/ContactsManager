@@ -32,8 +32,10 @@ public class ContactsManagerMenu {
 
 
                 case 1:
-                    printContactsList();
                     System.out.println("You selected View contacts.");
+                    System.out.println("Name            |  Phone Number");
+                    System.out.println("********************************");
+                    printContactsList();
                     break;
 
                 case 2:
@@ -69,9 +71,8 @@ public class ContactsManagerMenu {
     private static void printContactsList() {
 
         for (Contact c : ContactHashmap.getContacts().values()) {
-            System.out.println(c.getName());
-            System.out.println(c.getPhone());
-            System.out.println(c.getZip());
+            System.out.println(c.getName() + " | " + c.getPhone() + "\n");
+            System.out.println("-----------------------------");
         }
 
     }
