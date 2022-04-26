@@ -11,6 +11,13 @@ public class InformationHighway {
     }
 
     public static void callContact(String name) {
+        String s[] =  findNumber(name);
+
+        if (s != null)
+            System.out.println("Calling " + name + " at " + s[1]);
+        else
+            System.out.println("No person found name " + name);
+
         System.out.println("Calling " + name);
     }
 
@@ -27,10 +34,12 @@ public class InformationHighway {
         }
     }
 
-    public static void findNumber(String name) {
+    public static String[] findNumber(String name) {     //using string [] to send larger info
+        // b/t functions
         //change scanner source
         try (Scanner in = new Scanner(new File("file.txt"))) {
-            String s[]; //this will reuse same variable so no need to constantly reopen memory,
+            String[] s = new String[0]; //this will reuse same variable so no need to constantly
+            // reopen memory,
             // it'll redefine it
 
             //now what if contact is not in file?
@@ -45,15 +54,19 @@ public class InformationHighway {
                 //one is
                 // number which is second part of info
                 foundPerson = true;
+                break;      //stops going through loop once person is found
             }
 
             if (!foundPerson) {
                 System.out.println("Could not find " + name);
             }
 
+            return  s;
+
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+        return null;
 
     }
 
@@ -113,5 +126,6 @@ public class InformationHighway {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+
     }
 }
