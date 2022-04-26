@@ -8,10 +8,6 @@ public class ContactsManagerMenu {
 
 //       INSTANTIATES CASE 1
         Input userSelection = new Input();
-
-
-
-
         int num;
 
         //--------------------------- SWITCH CASE------------------------------
@@ -42,7 +38,6 @@ public class ContactsManagerMenu {
 
                 case 2:
                     System.out.println("You selected Add a new contact.");
-                    ContactHashmap.addContactToBook("test", 45);
                     ContactHashmap.addContactUserInput();
                     break;
                 case 3:
@@ -59,10 +54,16 @@ public class ContactsManagerMenu {
                 default:
                     if (num < 1 || num > 5) {
                         System.out.println("that's not an option");
+//                        try{
+//                            num = Integer.parseInt(num);
+//                        }catch (NumberFormatException ex) {
+//                            System.out.println("That's not a number");
+//                        }
                     }
             }
         } while (continueRunning);
         System.out.println("exiting loop");
+        ContactHashmap.tryWriteFile(ContactHashmap.getContacts());
     }
     private static void printContactsList() {
 
