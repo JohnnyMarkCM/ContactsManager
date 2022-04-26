@@ -2,23 +2,20 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import util.Input;
-
 import java.util.Scanner;
-
 import java.util.HashMap;
 
 public class ContactHashmap {
-    private static HashMap<String, Contacts> contacts = new HashMap<>();
+    private static HashMap<String, Contact> contacts = new HashMap<>();
 
 
     //------------------GET CONTACTS METHOD----------------------
-    public static HashMap<String, Contacts> getContacts() {
+    public static HashMap<String, Contact> getContacts() {
         if (contacts.isEmpty()) {
-            Contacts c1 = new Contacts("Jenny", 77380, "867-5309");
+            Contact c1 = new Contact("Jenny", 77380, "867-5309");
             c1.addZip(77382);
-            Contacts c2 = new Contacts("Jane", 77380, "936-999-0101");
+            Contact c2 = new Contact("Jane", 77380, "936-999-0101");
             c2.addZip(77380);
 
             contacts.put(c1.name, c1);
@@ -26,16 +23,17 @@ public class ContactHashmap {
         }
         return contacts;
     }
+//---------------------------------------------------------------
 
 
     //-----------CONTACT SEARCH BY NAME METHOD------------
-    public static HashMap<String, Contacts> searchContacts() {
+    public static HashMap<String, Contact> searchContacts() {
         Input userSelection = new Input();
         String userInput = userSelection.scanner.next();
         boolean flag = false;
 
 
-        for (Contacts person : ContactHashmap.getContacts().values()) {
+        for (Contact person : ContactHashmap.getContacts().values()) {
             while (userInput.equalsIgnoreCase(person.name)) {
                 System.out.println(person.getName());
                 System.out.println(person.getPhone());
@@ -43,11 +41,15 @@ public class ContactHashmap {
                 break;
             }
         }
-        if (flag == false) {
+        if (!flag) {
             System.out.println("No contacts with that name found!");
         }
         return contacts;
     }
+//---------------------------------------------------------------
+
+
+
 
     //using long--- for phone number to save on memory
     public static void addContactToBook(String name, long number) {

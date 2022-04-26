@@ -1,6 +1,6 @@
 
 
-public class Contacts {
+public class Contact {
 
     //  ---------PROPERTIES-----------
     public String name;
@@ -8,7 +8,7 @@ public class Contacts {
     public String phone;
 
     //    --------CONSTRUCTOR-----------
-    public Contacts(String name, int zip, String phone) {
+    public Contact(String name, int zip, String phone) {
         this.name = name;
         this.zip = 77380;
         this.phone = phone;
