@@ -1,7 +1,5 @@
 import util.Input;
 
-import java.util.HashMap;
-
 
 public class ContactsManagerMenu {
 
@@ -68,7 +66,7 @@ public class ContactsManagerMenu {
     }
     private static void printContactsList() {
 
-        for (Contacts c : ContactHashmap.getContacts().values()) {
+        for (Contact c : ContactHashmap.getContacts().values()) {
             System.out.println(c.getName());
             System.out.println(c.getPhone());
             System.out.println(c.getZip());
