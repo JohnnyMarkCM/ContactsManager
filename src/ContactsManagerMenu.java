@@ -44,6 +44,8 @@ public class ContactsManagerMenu {
 
                 case 2:
                     System.out.println("You selected Add a new contact.");
+                    ContactHashmap.addContactToBook("test", 45);
+                    ContactHashmap.addContactUserInput();
                     break;
                 case 3:
                     System.out.println("You selected Search a contact by name.");
