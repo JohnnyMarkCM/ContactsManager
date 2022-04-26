@@ -43,20 +43,27 @@ public class ContactHashmap {
         Input userSelection = new Input();
         String userInput = userSelection.scanner.next();
         boolean flag = false;
-
-
+        System.out.println();
+        System.out.println("Search Results:");
+        System.out.println("Name            |  Phone Number");
+        System.out.println("--------------------------------");
         for (Contact person : contacts.values()) {
             if (person.getName().toLowerCase(Locale.ROOT).contains(userInput.toLowerCase(Locale.ROOT))) {
 
-                System.out.println(person.getName());
-                System.out.println(person.getPhone());
-                System.out.println("----------------");
+//                System.out.println(person.getName());
+//                System.out.println(person.getPhone());
+//                System.out.println("----------------");
+                System.out.println("+---------------+----------------+");
+                System.out.println( person.getName()+ "  | " + person.getPhone());
+                System.out.println("+---------------+----------------+");
                 flag = true;
             }
         }
         if (!flag) {
             System.out.println("No contacts with that name found!");
         }
+        System.out.println();
+        System.out.println();
         return contacts;
     }
 //---------------------------------------------------------------
