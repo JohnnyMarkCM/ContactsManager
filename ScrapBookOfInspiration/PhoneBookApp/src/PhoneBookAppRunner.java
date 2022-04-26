@@ -116,7 +116,8 @@ public class PhoneBookAppRunner {
                         break;
 
                     case 3:
-                        System.out.println("\nWhat is the name of ther person whose phone number " +
+                        System.out.println("\nWhat is the name of the person whose phone number" +
+                                " " +
                                 "you " +
                                 "are " +
                                 "searching? (Firstname Lastname)");
