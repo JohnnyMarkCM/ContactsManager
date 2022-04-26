@@ -44,6 +44,7 @@ public class ContactsManagerMenu {
                     System.out.println("You selected Search a contact by name.");
                     System.out.println("Please enter a name below....");
                     ContactHashmap.searchContacts();
+
                     break;
                 case 4:
                     System.out.println("You selected Delete an existing contact.");

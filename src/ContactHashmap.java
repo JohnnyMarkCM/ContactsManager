@@ -11,6 +11,7 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.HashMap;
@@ -44,12 +45,13 @@ public class ContactHashmap {
         boolean flag = false;
 
 
-        for (Contact person : ContactHashmap.getContacts().values()) {
-            while (userInput.equalsIgnoreCase(person.getName())) {
+        for (Contact person : contacts.values()) {
+            if (person.getName().toLowerCase(Locale.ROOT).contains(userInput.toLowerCase(Locale.ROOT))) {
+
                 System.out.println(person.getName());
                 System.out.println(person.getPhone());
+                System.out.println("----------------");
                 flag = true;
-                break;
             }
         }
         if (!flag) {
@@ -66,29 +68,6 @@ public class ContactHashmap {
     public static void addContactToBook(String name, long number) {
 
 contacts.put(name, new Contact(name, 56285, Long.toString(number)));
-//        System.out.println("Adding contact " + name + " : " + number);
-//        File file = new File("contactsBook.txt");
-        //make sure to make if statement if it does/not exist
-
-//        try {
-//
-//            if (!file.exists())
-//                file.createNewFile();
-//            // now write to file as this takes an argument which is what we are writing to
-//            // to fix overwriting use FileWriter and append
-//            // append using FileWriter to append all new data written to end of file
-//            PrintWriter pw = new PrintWriter(new FileWriter(file, true));
-//
-//            pw.println(name + ":" + number);
-//
-//            //we need to close the print writer to end it.
-//            pw.close();
-//
-//            //now use try catch for exceptions  such as dividing by zero
-//            //this will run the code, catch the exception, and tell us what the issue is
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
     }
 
     public static void tryWriteFile(HashMap<String, Contact> contactMap){
@@ -107,9 +86,9 @@ contacts.put(name, new Contact(name, 56285, Long.toString(number)));
         Type token = new TypeToken<HashMap<String, Contact>>() {}.getType();
         try {
 
-            System.out.println(Files.readAllLines(filePath));
+//            System.out.println(Files.readAllLines(filePath));
             HashMap<String, Contact> map =  new Gson().fromJson(Files.readAllLines(filePath).get(0), token);
-            System.out.println(map.getClass());
+//            System.out.println(map.getClass());
             return map;
         }catch (IOException ex){
             System.out.println(ex.getMessage());
