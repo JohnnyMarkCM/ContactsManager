@@ -16,6 +16,10 @@ public class Input {
 
     }
 
+    public char[] getString() {
+        return scanner.nextLine().toCharArray();
+    }
+
     // GETTERS AND SETTERS
 
 //    public String getString() {
